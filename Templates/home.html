@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+
+	{% if title %}
+		<title>Corona-Tracker {{title}}</title>
+	{% else %}
+		<title>Library </title>
+
+	{% endif %}
+
+	 <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/home.css') }}"> 
+	 	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/all.min.css') }}"> 
+	 <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/home1.css') }}">
+ 
+
+</head>
+<body>
+	<header>
+			<h2 class=logo>Covid-19 Tracker</h2> <!-- <img src="" alt=Library_logo class=logo> -->
+			 <input type="checkbox" id="nav-toggle" class="nav-toggle">
+			<nav>
+				<ul>
+					<li><a href="world" alt="About" > World   </a></li>
+					<li><a href="india" alt="India" > India </a></li>
+					<li><a href="States" alt="About" >  States </a></li>
+					<li><a href="logout" alt="Logout" > Logout</a></li>
+				</ul>
+			</nav>
+			<label for="nav-toggle" class="nav-toggle-label">
+		    	<span></span>
+		 	</label>
+	</header>
+
+ 		<center>
+	<br>
+	<br>
+  <br>
+  <br>
+  <br>
+	<h1 style="color:rgba(255,0,0,0.6)">Active cases of corona in world={{wac}}</h1>
+	<br>
+	<h1 style="color:rgba(0,255,0,0.6)">Confirmed cases of corona in world={{wcc}}</h1>
+	<br>
+	<h1 style="color:rgba(0,0,255,0.6)">recovered cases of corona in world={{wrc}}</h1>
+	<br>
+	<h1 style="color:rgba(255,0,255,0.6)">Total deaths due to corona in world={{wtd}}</h1>
+	<br>
+</center>
+
+ 		<div class=content> 
+		<section>{% block content %}  {% endblock content %}</section>	
+	</div>
+	
+	{% with messages = get_flashed_messages() %}
+  {% if messages %}
+  		{% for  message in messages %}
+		<div class="alert alert-{{ message }}\">
+			{{message}}
+		</div>
+    {% endfor %}
+			
+	  	
+   
+  {% endif %}
+{% endwith %}
+{% block body %}{% endblock %}
+
+<footer>
+	
+</footer>
+
+
+
+</body>
+</html>
+

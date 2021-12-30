@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+
+  body{
+    background-image: url("static/images.jpg");
+    background-size: cover;
+    width: 100%;
+  }
+
+
+input[type=text], select {
+  width: 100%;
+  height: 60%;
+  padding: 12px 20px;
+  margin:  8px 0;
+  color: rgba(0,9,255,0.5);
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=email], select {
+  width: 100%;
+  height: 60%;
+  padding: 12px 20px;
+  margin:  8px 0;
+  color: rgba(0,9,255,0.5);
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=password], select {
+  width: 100%;
+  height: 60%;
+  padding: 12px 20px;
+  margin:  8px 0;
+  color: rgba(0,9,255,0.5);
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=number], select {
+  width: 100%;
+  height: 60%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  float: center;
+  width: 50%;
+  background-color: #405BB3;
+  color: white;
+  padding: 10px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #B0C7DE;
+
+}
+
+div
+ {
+  width:400px;
+  margin-left: 400px;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding-top: 40px;
+  padding-bottom: 120px;
+  padding-left: 100px;
+  padding-right: 100px; 
+ 
+}
+
+
+label
+{
+  font-weight: bold
+  color:rgba(255,255,0,1);
+  text-shadow: 1px 1px 2px rgba(0,20,255,0.3);
+  transition:all 2s;
+}
+label:hover
+{
+   text-shadow: 1px 1px 2px red;
+}
+h1
+{
+  color:rgba(0,20,255,0.5);
+  transition:all 2s;
+}
+h1:hover
+{
+    text-shadow: 1px 1px 2px blue;
+}
+a:hover
+{
+    text-shadow: 1px 1px 2px red;
+}
+#d
+{
+  width: 100%;
+  height: 60%;
+  padding: 12px 20px;
+  margin:  8px 0;
+  color: rgba(0,9,255,0.5);
+  display: inline-block;
+  border: 1px solid rgba(255,0,0,1);
+  border-radius: 4px;
+  box-sizing: border-box; 
+}
+a
+{
+  font-weight: bold
+  color:rgba(255,255,0,1);
+  text-shadow: 1px 1px 2px rgba(0,20,255,0.3);
+  transition:all 2s;
+}
+
+
+
+</style>
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+      {% for  message in messages %}
+    <div id="d" class="alert alert-{{ message }}\">
+      {{message}}
+    </div>
+    {% endfor %}      
+  {% endif %}
+{% endwith %}
+{% block body %}{% endblock %}
+</head>
+<body>
+
+
+<div>
+  <br><h1 ><center>Registration form</center></h1></br><br>
+  <form method="POST" action="">
+    <label >First Name:</label><br>
+    <input type="text" name="fname"  placeholder="Your name.." required=""><br><br>
+    <label>Email:</label><br>
+    <input type="email" name="email" placeholder="Your email.." required=""><br><br>
+    <label>Password:</label><br>
+    <input type="password" name="paswrd" name="password" placeholder="Your password.." required=""><br><br>
+    <label >Confirm Password:</label><br>
+    <input type="password" name="cpaswrd"  placeholder="Confirm your password.." required=""><br><br><br>
+    <center><input type="submit" value="Submit"></center>
+    <br>
+    <br>
+    <a href="login" ><center><u> click here to login </u></center></a>
+  </form>
+</div>
+
+</body>
+</html>

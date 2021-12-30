@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<table style="border:black dotted 2px;">
+		{% for user in details %}
+		<tr>
+			<td  style="border:black dotted 2px;"> {{user[0]}}</td>
+			<td>{{user[1]}}</td>
+			<td>{{user[2]}}</td>
+			<td>{{user[3]}}</td>
+			<td>{{user[4]}}</td>
+		</tr>
+		{% endfor %}
+	</table>
+
+	</table>
+</body>
+</html>

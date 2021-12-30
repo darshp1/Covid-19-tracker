@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<style>
+      *, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+
+body {
+  font-family: 'Lato', sans-serif;
+  color: #333;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+table {
+  max-width: 960px;
+  margin: 80px auto;
+}
+
+ th {
+  background: #35D380;
+  color: #fff;
+  font-weight: initial;
+}
+tr { background: #f1f1f1; }
+
+tr:nth-child(2n) { background: #e0e0e0; } 
+
+td:first-child
+{
+  background: rgba(255,255,0,0.3);
+  font-weight: bolder;
+  color: red;
+  font-weight: initial;
+}
+
+th, td {
+  text-align: left;
+  padding: 24px;
+}
+td:hover{
+  background: #A3EAED;
+  color: black;
+  text-shadow: 1px 1px 2px #000000;
+ 
+  -webkit-animation:colorchange 10s infinite alternate;
+}
+
+@keyframes example {
+  0%   {background-color:silver;}
+  25%  {background:#A3EAED;}
+  50%  {background:#B5F0CF;}
+  75%  {background:#E6ECB9;}
+  100% {background:#F37070;}
+}
+ @-webkit-keyframes colorchange {
+     0% {
+        
+        color: #F37070;
+      }
+      
+      25% {
+        
+        color: yellow;
+         background:#A3EAED;
+      }
+
+      50% {
+        
+        color: red;
+        background:#B5F0CF;
+      }
+      75% {
+     
+        color: #f1c40f;
+        background:#E6ECB9;
+      }
+      100% {
+        
+        color: pink;
+        background:#F37070;
+      }
+  }
+</style>
+<title>Corona-Tracker_World</title>
+   <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/home.css') }}"> 
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/all.min.css') }}"> 
+   <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/home1.css') }}">
+</head>
+<body >
+	<header>
+      <h2 class=logo>Covid-19 Tracker</h2> <!-- <img src="" alt=Library_logo class=logo> -->
+       <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <nav>
+        <ul>
+          <li><a href="world" alt="About" > World   </a></li>
+          <li><a href="india" alt="India" > India </a></li>
+          <li><a href="States" alt="About" >  States </a></li>
+          <li><a href="logout" alt="Logout" > Logout</a></li>
+        </ul>
+      </nav>
+      <label for="nav-toggle" class="nav-toggle-label">
+          <span></span>
+      </label>
+  </header>
+
+
+	<table border=1>
+		<tr>
+			<th>
+				Country/Section
+			</th>
+			<th>
+				Confirmed Cases
+			</th>
+			<th>
+				New cases
+			</th>
+			<th>
+				Deaths
+			</th>
+			<th>
+				Recovered
+			</th>
+		    <th>
+		      	Active Cases
+		    </th>
+		    <th>
+				Critical 
+			</th>
+			
+		</tr>
+		{%for d in data%}
+		<tr>
+			<td>{{d['country']}}</td>
+			<td>{{d['confirmed']}}</td>
+			<td>{{d['new_cases']}}</td>
+			<td>{{d['deaths']}}</td>
+			<td>{{d['recovered']}}</td>
+			<td>{{d['active']}}</td>
+			<td>{{d['critical']}}</td>
+			
+		</tr>
+		{%endfor%}
+	</table>
+
+</body>
+</html>
